@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Vacation - Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://media.istockphoto.com/id/2156176090/photo/times-square-in-new-york-city.jpg?s=1024x1024&w=is&k=20&c=z9oZr74lroqxOkOlYBbEAN2ZnH0QgsmGwJyPQ_v7jfM=') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .banner h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .banner h2 {
+            font-size: 1.5em;
+            margin: 10px 0 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .button-group {
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .button-group h3 {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid white;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            transition: background 0.3s;
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        .button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .button {
+                padding: 10px 20px;
+                font-size: 1em;
+                width: 90%; /* Make buttons take full width on mobile */
+            }
+
+            .banner h1 {
+                font-size: 2em;
+            }
+
+            .banner h2 {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Happy 9th Anniversary A&D</h1>
+        <h2>Welcome to NYC Vacation</h2>
+    </div>
+
+    <div class="container">
+        <div class="button-group">
+            <h3>Categories</h3>
+            <a href="Dining.htm" class="button">Dining</a>
+            <a href="Food_Breakfast.htm" class="button">Food Breakfast</a>
+            <a href="Food_Adventures.htm" class="button">Food Adventures</a>
+            <a href="Shopping.htm" class="button">Shopping</a>
+            <a href="Cultural_Attractions.htm" class="button">Cultural Attractions</a>
+            <a href="Outdoor_Scenic.htm" class="button">Outdoor & Scenic</a>
+            <a href="Night_Activities.htm" class="button">Night Activities</a>
+            <a href="Seasonal_Activities.htm" class="button">Seasonal Activities</a>
+        </div>
+    </div>
+</body>
+</html>
