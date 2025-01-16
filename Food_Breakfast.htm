@@ -1739,6 +1739,66 @@ word-wrap:break-word" vlink="#96607D">
                         alert("Input must be 10 characters or fewer.");
                     }
                 }
-                </script></body>
+                </script>
+<!-- Firebase SDK Scripts -->
+<script type="module">
+  // Import the functions you need from the SDKs
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+  import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBF3De33SciZ6lkqkiX4Y-9TOyse7o6BHY",
+    authDomain: "nyc9th-99480.firebaseapp.com",
+    databaseURL: "https://nyc9th-99480-default-rtdb.firebaseio.com",
+    projectId: "nyc9th-99480",
+    storageBucket: "nyc9th-99480.appspot.com",
+    messagingSenderId: "349744897093",
+    appId: "1:349744897093:web:dcd317322cbb7288b9d72c"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // Save booking to Firebase
+  function saveBooking(rowId, bookingText) {
+    set(ref(database, `bookings/${rowId}`), bookingText);
+  }
+
+  // Fetch bookings and display them
+  function fetchBookings() {
+    const rows = document.querySelectorAll("#diningTable tbody tr");
+    rows.forEach((row, index) => {
+      const rowId = `row-${index}`;
+      const bookedSpan = row.querySelector(".booked");
+
+      onValue(ref(database, `bookings/${rowId}`), (snapshot) => {
+        if (snapshot.exists()) {
+          bookedSpan.textContent = snapshot.val();
+          bookedSpan.style.color = "red";
+        }
+      });
+    });
+  }
+
+  // Booking functionality
+  function bookIt(button) {
+    const row = button.parentElement.parentElement; // Get the row
+    const rowIndex = Array.from(row.parentElement.children).indexOf(row); // Row index
+    const rowId = `row-${rowIndex}`; // Unique ID for the row
+
+    const userInput = prompt("Enter your booking note (max 10 characters):");
+    if (userInput && userInput.length <= 10) {
+      saveBooking(rowId, userInput); // Save to Firebase
+    } else if (userInput) {
+      alert("Input must be 10 characters or fewer.");
+    }
+  }
+
+  // Fetch bookings on page load
+  window.onload = fetchBookings;
+</script>
+</body>
 </html>
 <a href="index.html" style="position: fixed; bottom: 20px; right: 20px; background: #000; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 50%; box-shadow: 0px 4px 6px rgba(0,0,0,0.3); font-size: 1.2em;">Back</a>
